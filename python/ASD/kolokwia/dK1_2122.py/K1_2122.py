@@ -4,7 +4,7 @@ def partition(A, p, r):
     if p < r:
         x = A[r]
         i = p - 1
-        for j  in range(p, r):
+        for j in range(p, r):
             if A[j] <= x:
                 i += 1
                 A[i], A[j] = A[j], A[i]
@@ -13,7 +13,7 @@ def partition(A, p, r):
         return i + 1
 
 def quicksort(A, p, r):
-    while p < r:
+    if p < r:
         q = partition(A, p, r)
         quicksort(A, p, q - 1)
         quicksort(A, q + 1, r)
@@ -46,7 +46,6 @@ def median(A):
 
     for i in range(n):
         for j in range(n):
-            ind = i*n + j
             if i == j:
                 A[i][j] = T[start_half]
                 start_half += 1
@@ -56,5 +55,6 @@ def median(A):
             else:
                 A[i][j] = T[start_ind]
                 start_ind += 1
+
 
 runtests(median)
