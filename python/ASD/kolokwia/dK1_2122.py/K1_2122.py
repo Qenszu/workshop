@@ -57,28 +57,4 @@ def median(A):
                 A[i][j] = T[start_ind]
                 start_ind += 1
 
-#A = [ [ 2, 3, 5],
-#      [ 7,11,13],
-#      [17,19,23]]
-    
-def make_arr(n):
-    A = [[0 for _ in range(n)] for d in range(n)]
-    cnt = 1
-
-    for i in range(n):
-        for j in range(n):
-            A[i][j] = cnt
-            cnt += 1
-    
-    return A
-
-def display_2d_array(A):
-    for row in A:
-        print(" ".join(f"{elem:3}" for elem in row))
-
-A = make_arr(50)
-median(A)
-display_2d_array(A)
-
-
-#runtests(median)
+runtests(median)
