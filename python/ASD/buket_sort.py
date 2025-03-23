@@ -1,8 +1,11 @@
 def insertion_sort(A):
+    # Traverse through 1 to len(A)
     for i in range(1, len(A)): 
         key = A[i]                            
         j = i - 1
         
+        # Move elements of A[0..i-1], that are greater than key,
+        # to one position ahead of their current position
         while j >= 0 and key < A[j]:
             A[j+1] = A[j]
             j -= 1
@@ -12,10 +15,11 @@ def insertion_sort(A):
 def bucket_sort(A):
     n = len(A)
 
+    # If the array is empty, return it
     if n == 0:
         return A
     
-    #creating buckets
+    #creating bucketc
     mini = min(A)
     maxi = max(A)
     bucket_range = (maxi - mini) / n
@@ -29,7 +33,7 @@ def bucket_sort(A):
         
         buckets[ind].append(num)
 
-    #sorting buckets
+    #sorting bucketss        
     sorted_A = []
 
     for bucket in buckets:
@@ -38,7 +42,7 @@ def bucket_sort(A):
 
     return sorted_A
 
-
+# Example usage
 A = [0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68]
 A = bucket_sort(A)
 print("Posortowana tablica:", A)
