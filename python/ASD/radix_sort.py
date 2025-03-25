@@ -46,6 +46,6 @@ def radix_sort(A):
     return A
 
 # Example usage
-A = [53, 89, 150, 36, 633, 233]
+A = "pies"
 A = radix_sort(A)
 print(A)

@@ -1,3 +1,5 @@
+from kol1btesty import runtests
+
 def merge_sort(arr):
     size = len(arr)
     # Base case: if the array has one or no elements, it is already sorted
@@ -37,7 +39,35 @@ def merge_sort(arr):
             j += 1
             k += 1
 
-# Test the merge_sort function with a sample array
-arr_test = "pies"
-merge_sort(arr_test)
-print(arr_test)
+def turn_into_arr(str):
+    n = len(str)
+    arr = []
+    for i in range(n):
+        arr.append(str[i])
+
+    merge_sort(arr)
+    return arr
+
+def sort_str_arr(T, n):
+    for i in range(n):
+        T[i] = turn_into_arr(T[i])
+    
+    merge_sort(T)
+
+def f(T):
+    n = len(T)
+    sort_str_arr(T, n)
+    maxi = 0
+    cnt = 1
+    for i in range(n-1):
+        if T[i] == T[i+1]:
+            cnt += 1
+        else:
+            maxi = max(maxi, cnt)
+            cnt = 1  # Reset count to 1 instead of 0
+
+    maxi = max(maxi, cnt)  # Check the last sequence
+    return maxi 
+
+# Zamien all_tests=False na all_tests=True zeby uruchomic wszystkie testy
+runtests( f, all_tests=True )
