@@ -2,28 +2,6 @@ from collections import deque
 
 class Graph:
     def __init__(self, vertices):
-        # Initialize adjacency lists for all vertices
-        self.vertices = vertices
-        self.graph = [[] for _ in range(vertices)]
-    
-    def add_edge(self, u, v):
-        # Add an edge from u to v
-        self.graph[u].append(v)
-        
-        # For undirected graph, add edge from v to u as well
-        # self.graph[v].append(u)
-    
-    def print_graph(self):
-        for i in range(self.vertices):
-            print(i, end = ": ")
-            for j in self.graph[i]:
-                print(j, end="  ")
-            print("\n")
-    
-    from collections import deque
-
-class Graph:
-    def __init__(self, vertices):
         self.vertices = vertices
         self.graph = [[] for _ in range(vertices)]
     
@@ -73,7 +51,7 @@ g.add_edge(3, 5)
 g.add_edge(4, 5)
 
 # Perform BFS starting from vertex 0
-result = g.bfs(3)
+result = g.bfs(0, 5)
 print("BFS traversal starting from vertex 0:")
 print(result)  # Output will be: [0, 1, 2, 3, 4, 5]
 
