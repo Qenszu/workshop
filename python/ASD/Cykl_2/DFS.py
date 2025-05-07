@@ -1,14 +1,14 @@
 from graph import *
 
-g = Graph(6)
+g = Graph(7)
 g.add_edge(0, 1)
 g.add_edge(0, 2)
+g.add_edge(1, 2)
 g.add_edge(1, 3)
-g.add_edge(2, 3)
-g.add_edge(2, 4)
+g.add_edge(2, 5)
 g.add_edge(3, 4)
-g.add_edge(3, 5)
-g.add_edge(4, 5)
+g.add_edge(4, 6)
+
     
 def dfs(G, start_vertex):
     # Mark all vertices as not visited
@@ -20,7 +20,7 @@ def dfs(G, start_vertex):
     # Call the recursive helper function
     _dfs_recursive(G, start_vertex, visited, traversal)
         
-    return traversal
+    return visited
     
 def _dfs_recursive(G, vertex, visited, traversal):
     # Mark the current node as visited and add to traversal
@@ -63,4 +63,4 @@ def dfs_iterative(G, start_vertex):
         
     return traversal
 
-print(dfs(g, 0))
+print(dfs(g, 2))
