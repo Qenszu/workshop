@@ -62,4 +62,4 @@ G = [(0, 9, 6), (0, 35, 14), (0, 72, 11), (0, 87, 14), (0, 92, 5), (1, 7, 12), (
 print(warrior(G, 0, 4))
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
-#runtests( warrior, all_tests = True )
+#runtests( warrior, all_tests = True ) 
