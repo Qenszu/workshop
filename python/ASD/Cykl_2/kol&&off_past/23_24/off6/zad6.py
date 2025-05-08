@@ -13,39 +13,37 @@ def jumper( G, s, w ):
 
     n = len(G)
     dist = [[float("inf") for _ in range(2)] for i in range(n)]
-    dist[s][0] = dist[s][1] = 0
+    dist[s][0] = 0
     q = PriorityQueue()
     q.put((0, s, 0))
 
     while not q.empty():
         d, v, jump = q.get()
 
-        if jump:
-            for u, weight in g[v]:
-                if dist[u][jump] > dist[v][jump] + weight:
-                    dist[u][jump] = dist[v][jump] + weight
-                    q.put((dist[u][jump], u, 0))
-        else:
-            for u, weight in g[v]:
-                if dist[u][jump] > dist[v][jump] + weight:
-                    dist[u][jump] = dist[v][jump] + weight
-                    q.put((dist[u][jump], u, 0))
-                for x, weight_2 in g[u]:
-                    if dist[x][1] > dist[v][jump] + max(weight, weight_2):
-                        dist[x][1] = dist[v][jump] + max(weight, weight_2)
-                        q.put((dist[x][1], x, 1))
-    
+        for u in range(n):
+            if G[v][u] > 0:
+                new_d = d + G[v][u]
+                if dist[u][0] > new_d:
+                    dist[u][0] = new_d
+                    q.put((new_d, u, 0))
+        
+        if not jump:
+            for u in range(n):
+                for x in range(n):
+                    if G[v][u] > 0 and G[u][x] > 0 and u != x:
+                        new_d = d + max(G[v][u], G[u][x])
+                        if dist[x][1] > new_d:
+                            dist[x][1] = new_d
+                            q.put((new_d, x, 1))
+
     return min(dist[w])
 
-    return None
-
-
-G = [   [0, 1, 200, 200, 200, 200],
-        [1, 0, 2, 200, 200, 200],
-        [200, 2, 0, 40, 200, 200],
-        [200, 200, 40, 0, 40, 200],
-        [200, 200, 200, 40, 0, 117],
-        [200, 200, 200, 200, 117, 0]]
+G = [[0, 1, 200, 200, 200, 200],
+    [1, 0, 2, 200, 200, 200],
+    [200, 2, 0, 40, 200, 200],
+    [200, 200, 40, 0, 40, 200],
+    [200, 200, 200, 40, 0, 117],
+    [200, 200, 200, 200, 117, 0]]
 
 #print(jumper(G, 0, 5))
 
