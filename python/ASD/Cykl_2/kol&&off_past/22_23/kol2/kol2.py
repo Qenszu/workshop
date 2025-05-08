@@ -14,7 +14,7 @@ def beautree(G):
             if v < u:
                 edges.append((w, v, u))
     
-    edges.sort()
+    edges.sort(key=lambda x: x[0])
     for i in range(len(edges) - (n-1)):
         cnt = 0
         parent = [i for i in range(n)]
