@@ -55,4 +55,7 @@ def armstrong(B, G, s, t):
         result = min(result, dist_s_t[u] + dist_t_s[u] * (p / q))
 
     return floor(result)
+
+
+
 runtests(armstrong, all_tests=True)

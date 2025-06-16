@@ -19,14 +19,14 @@ def add_to_heap(A, val):
 
     A[0], A[n-1] = A[n-1], A[0]
 
-    print(A)
+    #print(A)
     for i in range(n // 2 - 1, -1, -1):
         heapify(A, n, i)
     return A
 
 A = [95, 84, 72, 63, 58, 41, 65, 22, 47]
 A = add_to_heap(A, 76)
-print(A)
+#print(A)
 
 
 
