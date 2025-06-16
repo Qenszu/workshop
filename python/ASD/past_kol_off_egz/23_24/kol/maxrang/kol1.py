@@ -1,3 +1,5 @@
+from kol1testy import runtests
+
 def merge_sort(arr, ans):
     size = len(arr)
     if size > 1:
@@ -32,9 +34,9 @@ def merge_sort(arr, ans):
             j += 1
             k += 1
 
-    return T
+    return arr
 
-def maxrang(arr):
+def maxrank(arr):
     ans = [0 for _ in range(len(arr))]
     tmp = [0 for _ in range(len(arr))]
     for i in range(len(arr)):
@@ -43,8 +45,7 @@ def maxrang(arr):
     merge_sort(tmp, ans)
     print(ans)
     return max(ans)
+  
 
-T = [5, 3, 9, 5]
-print(maxrang(T))
-
-
+# zmien all_tests na True zeby uruchomic wszystkie testy
+runtests( maxrank, all_tests = True )
