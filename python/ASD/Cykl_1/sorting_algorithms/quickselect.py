@@ -33,7 +33,8 @@ def partition(A, p, r):
     return i + 1
 
 # Example usage
-A = [1, 3, 4, 2]
-k = 3
+A = [1, 3, 5, 7, 8]
+A = [1, 3, 3, 2, 2]
 n = len(A)
+k = n - 1
 print(k, "-ty elemento to: ", quickselect(A, 0, n - 1, n-k))

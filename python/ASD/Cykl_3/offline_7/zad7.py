@@ -15,8 +15,8 @@ def orchard(T, m):
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
-#runtests(orchard, all_tests=False)
-T = [2, 2, 7, 5, 1, 14, 7]
-m = 7
+runtests(orchard, all_tests=True)
+#T = [2, 2, 7, 5, 1, 14, 7]
+#m = 7
 
-print(orchard(T, m))
+#print(orchard(T, m))
